@@ -32,22 +32,18 @@ function game() {
     playerInput = prompt('Type rock, paper or scissors:');
     let result = playOneRound(playerInput, getComputerChoice());
     console.log(result);
-    if (result.indexOf('tie') !== -1) {
+    if (result.indexOf('win') !== -1) 
       playerCounter++;
+    else if (result.indexOf('lose') !== -1)
       computerCounter++;
-    }
-    else if (result.indexOf('win') !== -1) {
-      playerCounter++;
-    }
-    else
-      computerCounter++;
+    if (i === 4 && playerCounter > computerCounter)
+      console.log(`Final result: Player's won ${playerCounter} : ${computerCounter}!`);
+    else if (i ===4 && computerCounter > playerCounter)
+      console.log(`Final result: Computer's won ${computerCounter} : ${playerCounter}!`);
+    else if (i ===4 && playerCounter === computerCounter)
+    console.log(`Final result: It's a tie! ${computerCounter} : ${playerCounter}!`);
   }
-  if (playerCounter === 5 && computerCounter < 5)
-    console.log(`Final result: Player's won ${playerCounter} : ${computerCounter}!`);
-  else if (playerCounter === 5 && computerCounter === 5)
-    console.log('Final result: It\'s a tie!');
-  else
-    console.log(`Final result: Computer's won ${computerCounter} : ${playerCounter}!`);
+  
 }
 
 game();
