@@ -46,7 +46,7 @@ function game() {
   
 }
 
-game();
+// game();
 
 
 //playOneRound Method 1: using if else
