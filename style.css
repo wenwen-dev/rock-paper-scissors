@@ -2,9 +2,11 @@
   box-sizing: border-box;
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
 }
+
 .container {
   display: flex;
   gap: 20px;
@@ -16,4 +18,17 @@ h1 {
   height: 300px;
   background-color: lightpink;
   border: none;
+}
+
+#result {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#result div {
+  width: 200px;
+  height: 100px;
+  background-color: gold;
+  font-size: x-large;
 }
