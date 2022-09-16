@@ -1,3 +1,41 @@
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const buttons = document.querySelectorAll('.btn');
+
+let playerPoint = 0;
+let computerPoint = 0;
+let playerSelection;
+let computerSelection;
+
+
+buttons.forEach(button => button.addEventListener('click', (e) => {
+  playerSelection = e.target.id;
+  playRound();
+}
+  ));
+
+function playRound(){
+  computerSelection = getComputerChoice();
+  console.log(computerSelection);
+  console.log(playerSelection);
+
+  switch(true) {
+    case playerSelection === 'rock' && computerSelection === 'scissors':
+    case playerSelection === 'paper' && computerSelection === 'rock':
+    case playerSelection === 'scissors' && computerSelection === 'paper':
+      console.log('You won!');
+      break;
+    case computerSelection === 'rock' && playerSelection === 'scissors':
+    case computerSelection === 'paper' && playerSelection === 'rock':
+    case computerSelection === 'scissors' && playerSelection === 'paper':
+      console.log('Computer won!');
+      break;
+  }
+}
+
+
 function getComputerChoice() {
   let randomNumber = Math.random();
   let computerChoice;
@@ -7,46 +45,29 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-function playOneRound(playerChoice, computerSelection){
-  let playerSelection = playerChoice.toLowerCase();
-  switch(true) {
-    case playerSelection === computerSelection:
-      return `It\'s a tie! Player: ${playerSelection}, Computer: ${computerSelection}. `;
-      break;
-    case playerSelection === 'rock' && computerSelection === 'scissors':
-    case playerSelection === 'paper' && computerSelection === 'rock':
-    case playerSelection === 'scissors' && computerSelection === 'paper':
-      return `You win! Player: ${playerSelection}, Computer: ${computerSelection}.  ${playerSelection} beats ${computerSelection}`;
-      break;
-    default:
-      return `You lose! Player: ${playerSelection}, Computer: ${computerSelection}.  ${computerSelection} beats ${playerSelection}`;
-  }
-}
-
-
 function game() {
-  let playerInput;
-  let playerCounter = 0;
-  let computerCounter = 0;
-  for (let i = 0; i < 5; i++) {
-    playerInput = prompt('Type rock, paper or scissors:');
-    let result = playOneRound(playerInput, getComputerChoice());
-    console.log(result);
-    if (result.indexOf('win') !== -1) 
-      playerCounter++;
-    else if (result.indexOf('lose') !== -1)
-      computerCounter++;
-    if (i === 4 && playerCounter > computerCounter)
-      console.log(`Final result: Player's won ${playerCounter} : ${computerCounter}!`);
-    else if (i ===4 && computerCounter > playerCounter)
-      console.log(`Final result: Computer's won ${computerCounter} : ${playerCounter}!`);
-    else if (i ===4 && playerCounter === computerCounter)
-    console.log(`Final result: It's a tie! ${computerCounter} : ${playerCounter}!`);
-  }
+  // let playerInput;
+  // let playerCounter = 0;
+  // let computerCounter = 0;
+  
+  //   playerInput = prompt('Type rock, paper or scissors:');
+  //   let result = playRound(playerInput, getComputerChoice());
+  //   console.log(result);
+  //   if (result.indexOf('win') !== -1) 
+  //     playerCounter++;
+  //   else if (result.indexOf('lose') !== -1)
+  //     computerCounter++;
+  //   if (i === 4 && playerCounter > computerCounter)
+  //     console.log(`Final result: Player's won ${playerCounter} : ${computerCounter}!`);
+  //   else if (i ===4 && computerCounter > playerCounter)
+  //     console.log(`Final result: Computer's won ${computerCounter} : ${playerCounter}!`);
+  //   else if (i ===4 && playerCounter === computerCounter)
+  //   console.log(`Final result: It's a tie! ${computerCounter} : ${playerCounter}!`);
+
   
 }
 
-// game();
+
 
 
 //playOneRound Method 1: using if else
