@@ -1,12 +1,14 @@
-const buttons = document.querySelectorAll('.btn');
+const buttons = document.querySelectorAll('.btn-container');
 
 let playerSelection;
 let computerSelection;
 
-const playerScoreboard = document.querySelector('#one');
-const computerScoreboard = document.querySelector('#two');
+const playerScoreboard = document.querySelector('#player-score');
+const computerScoreboard = document.querySelector('#computer-score');
 
-buttons.forEach(button => button.addEventListener('click', (e) => {
+buttons.forEach(button => button.addEventListener('click', game));
+
+function game(e) {
   playerSelection = e.target.id;
   let result = playRound();
 
@@ -22,7 +24,6 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
     document.querySelector('h2').textContent = 'Computer won!';
   }
 }
-  ));
 
 function playRound(){
   computerSelection = getComputerChoice();
