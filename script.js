@@ -1,11 +1,5 @@
-
-const rock = document.querySelector('#rock');
-const paper = document.querySelector('#paper');
-const scissors = document.querySelector('#scissors');
 const buttons = document.querySelectorAll('.btn');
 
-let playerPoint = 0;
-let computerPoint = 0;
 let playerSelection;
 let computerSelection;
 
@@ -46,7 +40,6 @@ function playRound(){
       return 0;
   }
 }
-
 
 function getComputerChoice() {
   let randomNumber = Math.random();
