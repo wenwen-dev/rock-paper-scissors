@@ -3,6 +3,7 @@ const updateMessage = document.querySelector('#updateMessage');
 
 let playerSelection;
 let computerSelection;
+let gameIsOver = false;
 
 const playerScoreboard = document.querySelector('#player-score');
 const computerScoreboard = document.querySelector('#computer-score');
@@ -10,6 +11,7 @@ const computerScoreboard = document.querySelector('#computer-score');
 buttons.forEach(button => button.addEventListener('click', game));
 
 function game(e) {
+  if (gameIsOver) return;
   playerSelection = e.target.id;
   let result = playRound();
 
@@ -28,11 +30,13 @@ function game(e) {
 
   if (Number(playerScoreboard.textContent) === 5)  {
     document.querySelector('h2').textContent = 'You won!';
-    return;
+    gameIsOver = true;
+    updateMessage.textContent = `Hurray! You won!`
   }
   if (Number(computerScoreboard.textContent) === 5) {
     document.querySelector('h2').textContent = 'Computer won!';
-    return;
+    gameIsOver = true;
+    updateMessage.textContent = `Dude, you lost to a machine...`
   }
 
 }
