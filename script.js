@@ -38,7 +38,6 @@ function game(e) {
     gameIsOver = true;
     updateMessage.textContent = `Dude, you lost to a machine...`
   }
-
 }
 
 function playRound(){
